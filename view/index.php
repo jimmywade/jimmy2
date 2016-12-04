@@ -744,14 +744,15 @@
                         <div class="col-xs-2">
                             <img style="width:100%;" src="../media/proyectos/images/{{mp.nombreImagen}}">
                         </div>
-                        <div class="col-xs-6 col-xs-offset-1">
-                            <div class="col-xs-12" style="color:#a8a8a8; text-align:center;"><h3><b> El indice es: {{miIndice}} {{mp.nombreProyecto}}</b></h3></div>
+                        <div class="col-xs-8 col-xs-offset-1">
+                            <div class="col-xs-12" style="color:#a8a8a8; text-align:center;"><h3><b> {{mp.nombreProyecto}}</b></h3></div>
                             <div class="col-xs-12">{{mp.problemaProyecto | cortarTexto:250 }}</div>
                         </div>
-
+                        
+                        <!--
                         <div class="col-xs-1 col-xs-offset-1" title="Edit project">
                             <div style="width:100%;">
-                                <div style="clear:both; height:4em;"></div> <!-- espacio -->
+                                <div style="clear:both; height:4em;"></div>
                             </div>
                             <div class="btn btn-default" style="width:100%;">
                                 <i style="margin:0 auto; color:#d5d5d5;" class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
@@ -759,7 +760,7 @@
                         </div>
                         <div class="col-xs-1"  title="Delete this project">
                             <div style="width:100%;">
-                                <div style="clear:both; height:4em;"></div> <!-- espacio -->
+                                <div style="clear:both; height:4em;"></div> 
                             </div>
                             <div id="elix" class="btn btn-default" style="width:100%; display: block;" ng-click="hs('elix','elix2')">
                                 <i style="margin:0 auto; color:#d5d5d5;" class="fa fa-times fa-2x" aria-hidden="true"></i>
@@ -768,6 +769,7 @@
                                 <i style="margin:0 auto;" class="fa fa-times fa-2x" aria-hidden="true"></i>
                             </div> 
                         </div>
+                        -->
 
                     </div>                    
                 </div>
@@ -804,14 +806,208 @@
 
 
 
-
-
-
-
-
-
-
 <section id="misproyecDetalle" style="display:none;">
+
+
+        <div style="clear:both; height:9em;"></div> <!-- espacio -->
+
+
+        <div class="container" style="background-color:#FFF; padding-left:5em; padding-right:5em; padding-top:1em; padding-bottom:3em; margin-bottom:30px;">
+            <div class="row">
+                <div class="col-xs-3">
+                    <img style="width:100%;" src="../media/proyectos/images/{{miListado[miIndice].nombreImagen}}">
+                </div>
+                <div class="col-xs-8 above"><h3 style="text-align:center;">{{miListado[miIndice].nombreProyecto}}</h3></div>
+            </div>
+
+            <div class="row" style="clear:both; height:2em;"><hr></div> <!-- espacio -->
+            
+            <!--
+            <div class="row">
+                <div class="col-xs-3">
+                    <h4>Pa&iacute;s beneficiario:</h4>
+                </div>
+                <div class="col-xs-9 above">
+                    {{miListado[miIndice].nombrePais}}
+                </div>
+            </div>
+            <div class="row" style="clear:both; height:1em;"></div>
+            <div class="row">
+                <div class="col-xs-3">
+                    <h4>Ciudad:</h4>
+                </div>
+                <div class="col-xs-9 above">
+                    {{miListado[miIndice].nombreCiudad}}
+                </div>
+            </div>
+            <div class="row" style="clear:both; height:1em;"></div>
+            <div class="row">
+                <div class="col-xs-3">
+                    <h4>Institucion educativa:</h4>
+                </div>
+                <div class="col-xs-9 above">
+                    {{miListado[miIndice].nombreInstitucion}}
+                </div>
+            </div>
+            <div class="row" style="clear:both; height:1em;"></div>
+            <div class="row">
+                <div class="col-xs-3">
+                    <h4>Estudiantes Responsables:</h4>
+                </div>
+                <div class="col-xs-9 above">
+                    {{miListado[miIndice].nombreEstudiante}}
+                </div>
+            </div>
+            -->
+
+            <!--
+            <div class="row" style="clear:both; height:1em;"></div> 
+            --> 
+            <!-- espacio -->
+            <!--
+            <div class="row">
+                <div class="col-xs-3">
+                    <h4>Personas y entidades de apoyo:</h4>
+                </div>
+                <div class="col-xs-9">
+                    
+                </div>
+            </div>
+            -->
+
+            
+            <div class="row" style="clear:both; height:1em;"></div> <!-- espacio -->
+            <div class="row">
+                <div class="col-xs-3">
+                    <h4>Descripci&oacute;n:</h4>
+                </div>
+                <div class="col-xs-9 above">
+                    {{miListado[miIndice].problemaProyecto}}
+                </div>
+            </div>
+
+            <div class="row" style="clear:both; height:1em;"></div> <!-- espacio -->
+            <div class="row">
+                <div class="col-xs-3">
+                    <h4>Tema:</h4>
+                </div>
+                <div class="col-xs-9 above">
+                    {{miListado[miIndice].nombreTema}}
+                </div>
+            </div>
+
+            <div class="row" style="clear:both; height:1em;"></div> <!-- espacio -->
+            <div class="row">
+                <div class="col-xs-3">
+                    <h4>Objetivo general:</h4>
+                </div>
+                <div class="col-xs-9 above">
+                    {{miListado[miIndice].objetivoProyecto}}
+                </div>
+            </div>
+            <div class="row" style="clear:both; height:1em;"></div> <!-- espacio -->
+            <div class="row">
+                <div class="col-xs-3">
+                    <h4>Objetivos especificos:</h4>
+                </div>
+                <div class="col-xs-9 above">
+                    {{miListado[miIndice].especificoProyecto}}
+                </div>
+            </div>
+            <div class="row" style="clear:both; height:1em;"></div> <!-- espacio -->
+            <div class="row">
+                <div class="col-xs-3">
+                    <h4>Resultados Esperados:</h4>
+                </div>
+                <div class="col-xs-9 above">
+                    {{miListado[miIndice].resultadoProyecto}}
+                </div>
+            </div>
+            <div class="row" style="clear:both; height:1em;"></div> <!-- espacio -->
+            <div class="row">
+                <div class="col-xs-3">
+                    <h4>Actividades:</h4>
+                </div>
+                <div class="col-xs-9 above">
+                    {{miListado[miIndice].actividadProyecto}}
+                </div>
+            </div>
+            <div class="row" style="clear:both; height:1em;"></div> <!-- espacio -->
+            <div class="row">
+                <div class="col-xs-3">
+                <h4>Poblaci&oacute;n beneficiaria:</h4>
+                </div>
+                <div class="col-xs-9 above">
+                    {{miListado[miIndice].beneficiarioProyecto}}
+                </div>
+            </div>
+            <div class="row" style="clear:both; height:1em;"></div> <!-- espacio -->
+            <div class="row">
+                <div class="col-xs-3">
+                    <h4>Area geografica de intervenci&oacute;n:</h4>
+                </div>
+                <div class="col-xs-9 above">
+                    {{miListado[miIndice].areaProyecto}}
+                </div>
+            </div>
+            <div class="row" style="clear:both; height:1em;"></div> <!-- espacio -->
+            <div class="row">
+                <div class="col-xs-3">
+                    <h4>Valor total del proyecto:</h4>
+                </div>
+                <div class="col-xs-9 above">
+                    {{miListado[miIndice].valorProyecto}}
+                </div>
+            </div>
+            <div class="row" style="clear:both; height:1em;"></div> <!-- espacio -->
+            <div class="row">
+                <div class="col-xs-3">
+                    <h4>Tiempo de duraci&oacute;n:</h4>
+                </div>
+                <div class="col-xs-9 above">
+                    {{months}} {{meses}}
+                </div>
+            </div>
+            <div class="row" style="clear:both; height:1px;"></div> <!-- espacio -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-xs-offset-0 col-sm-offset-2">
+                    <img style="width:100%;" src="../media/proyectos/images/{{miListado[miIndice].nombreImagen}}">
+                </div>
+            </div>
+
+        </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="misproyecDetalle_hh" style="display:none;">
 
 
         <div style="clear:both; height:9em;"></div> <!-- espacio -->

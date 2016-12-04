@@ -848,7 +848,7 @@
                             <img style="width:100%;" src="../media/proyectos/images/{{mp.nombreImagen}}">
                         </div>
                         <div class="col-xs-6 col-xs-offset-1">
-                            <div class="col-xs-12" style="color:#a8a8a8; text-align:center;"><h3><b> El indice es: {{miIndice}} {{mp.nombreProyecto}}</b></h3></div>
+                            <div class="col-xs-12" style="color:#a8a8a8; text-align:center;"><h3><b>{{mp.nombreProyecto}}</b></h3></div>
                             <div class="col-xs-12">{{mp.problemaProyecto | cortarTexto:250 }}</div>
                         </div>
 

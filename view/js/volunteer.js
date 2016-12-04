@@ -553,11 +553,11 @@ Mis proyectos
 
 
 
-
-
-
-
     $scope.esteProyectoMisproyec=function(miIndice,codigoProyecto,duracionProyecto){
+
+        
+        alert('hola chao');
+        alert(miIndice);
         $scope.miIndice = miIndice;
         //alert('miIndice enviado es: ' + $scope.miIndice);
 
