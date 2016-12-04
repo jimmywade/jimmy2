@@ -78,7 +78,11 @@
     <div id="menuLayout10" class="container" style="display:none; position:fixed; z-index:200; width:100%;">
         <div class="row">
             <div class="col-xs-3 col-xs-offset-8" style="padding:1em; background-color:#fff; box-shadow: 0px 0px 40px #666666;">
-                <div ng-click="hs(divActive, 'proyectosCreate'); hideSingle('menuLayout10'); setDivActive('proyectosCreate')" style="width:100%; padding:1em; cursor:pointer; ">Crear proyecto</div><br>
+                <!--
+                <div ng-click="hs(divActive, 'proyectosCreate'); hideSingle('menuLayout10'); setDivActive('proyectosCreate')" style="width:100%; padding:1em; cursor:pointer; ">
+                    Crear proyecto
+                </div><br>
+                -->
                 <div ng-click="miListadoRead(divActive,'misproyecRead'); hideSingle('menuLayout10')" style="width:100%; padding:1em; cursor:pointer; ">Mis proyectos</div><br>
                 <div ng-click="destruirSesion(); hideSingle('menuLayout10')" style="width:100%; padding:1em; cursor:pointer; ">Cerrar sesi&oacute;n</div><br>
             </div>

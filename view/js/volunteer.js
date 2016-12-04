@@ -210,8 +210,7 @@ Estudiantes
         $scope.months = "";
         $scope.indice = "";
         $scope.miIndice = "";
-        $scope.emailVoluntario = "mili@gmail.com";
-        $scope.passwordVoluntario = "12345";
+
     }
 
 
