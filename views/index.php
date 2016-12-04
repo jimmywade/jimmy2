@@ -801,7 +801,7 @@
             </div>
             <div class="row" style="clear:both; height:1em;"></div> <!-- espacio -->
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-xs-12 col-sm-8 col-xs-offset-0 col-sm-offset-2">
                     <img style="width:100%;" src="../media/proyectos/images/{{listado[indice].nombreImagen}}">
                 </div>
             </div>
@@ -1074,7 +1074,7 @@
             </div>
             <div class="row" style="clear:both; height:1em;"></div> <!-- espacio -->
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-xs-12 col-sm-8 col-xs-offset-0 col-sm-offset-2">
                     <img style="width:100%;" src="../media/proyectos/images/{{mispro[miIndice].nombreImagen}}">
                 </div>
             </div>
