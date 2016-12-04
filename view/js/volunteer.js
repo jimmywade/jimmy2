@@ -512,10 +512,6 @@ Mis proyectos
     //mis proyectos
     $scope.miListadoRead = function(h,s){
                             
-
-        alert('div activo');
-        alert($scope.divActive);
-                            
         $scope.miListado = [];
 
         $scope.esteVolunteer = localStorage.getItem('volunteer');
