@@ -501,9 +501,9 @@ Mis proyectos
 
         $scope.esteVolunteer = localStorage.getItem('volunteer');
 
-        $http.post("../control/aportenteCreate.php", {'codigoVoluntario':$scope.esteVolunteer,'codigoProyecto':$scope.codeProject})
+        $http.post("../control/aportanteCreate.php", {'codigoVoluntario':$scope.esteVolunteer,'codigoProyecto':codeProject})
             .success(function(data,status,headers,config){
-                console.log('------------MIS PROYECTOS----------');
+                console.log('----se creo aportante?----');
                 console.log(data);
                 console.log('----------------------');
                 $scope.aportante = data;
@@ -517,7 +517,7 @@ Mis proyectos
                 }
             })
             .error(function(err){
-                console.log('no fue posible consultar mis proyectos');
+                console.log('no fue posible crear este aportante');
             });
 
     }
