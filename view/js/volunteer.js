@@ -467,19 +467,6 @@ Proyectos
 
 
 
-    //proyectos read cambio
-    $scope.misProyectosApply = function(){
-
-        setTimeout(function(){ 
-                        $scope.$apply(function(){   //alert('Scope indice: ' + $scope.indice);
-                                                    $scope.aportante;
-                                                    console.log('Aportante refrescado');
-                                               });
-                        },500
-                  );
-
-    }
-
 
 
 
@@ -511,9 +498,12 @@ Mis proyectos
                 if(($scope.aportante!=undefined)&&($scope.aportante!='')&&($scope.aportante!='[]')&&($scope.aportante!='{}')){
 
                     // el llamado a las demas funciones y despues el apague y prenda
+                    var actualizarMisProyectos = $scope.miListadoRead();
                     off(h);
                     on(s);
                     var anything = $scope.setDivActive(s);
+                }else{
+                    console.log('problema al consultar');
                 }
             })
             .error(function(err){
@@ -525,26 +515,29 @@ Mis proyectos
 
 
 
+
+
     //mis proyectos
-    $scope.misProyectos = function(h,s){
+    $scope.miListadoRead = function(){
                             
         $scope.miListado = [];
 
         $scope.esteVolunteer = localStorage.getItem('volunteer');
 
-        $http.post("../control/aportanteRead.php", {'esteVolunteer':$scope.esteVolunteer})
+        $http.post("../control/miListadoRead.php", {'esteVoluntario':$scope.esteVolunteer})
             .success(function(data,status,headers,config){
-                console.log('------------MIS Listado----------');
+                console.log('------------Mi Listado----------');
                 console.log(data);
                 console.log('----------------------');
                 $scope.miListado = data;
 
-                if(($scope.aportante!=undefined)&&($scope.aportante!='')&&($scope.aportante!='[]')&&($scope.aportante!='{}')){
+                if(($scope.miListado!=undefined)&&($scope.miListado!='')&&($scope.miListado!='[]')&&($scope.miListado!='{}')){
 
-                    // el llamado a las demas funciones y despues el apague y prenda
-                    off(h);
-                    on(s);
-                    var anything = $scope.setDivActive(s);
+                    // el llamado a refrescar miListado
+                    var refrescarMiListado = $scope.miListadoApply();
+
+                }else{
+                    console.log('problem al consultar');
                 }
             })
             .error(function(err){
@@ -571,6 +564,22 @@ Mis proyectos
         
     }
 
+
+
+
+
+    //proyectos read cambio
+    $scope.miListadoApply = function(){
+
+        setTimeout(function(){ 
+                        $scope.$apply(function(){   //alert('Scope indice: ' + $scope.indice);
+                                                    $scope.miListado;
+                                                    console.log('Aportante refrescado');
+                                               });
+                        },500
+                  );
+
+    }
 
 
 

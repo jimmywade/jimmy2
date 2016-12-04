@@ -42,6 +42,36 @@
 
 
 
+
+
+	    public function aportanteRead($codigoVoluntario){
+			$sql = " 
+			SELECT * FROM aportantes,voluntarios,proyectos,temas,imagenes
+			WHERE aportantes.estadoAportante = 1
+			AND aportantes.codigoProyecto = proyectos.codigoProyecto
+			AND temas.codigoTema = proyectos.codigoTema
+			AND proyectos.codigoProyecto = imagenes.codigoProyecto
+			AND aportantes.codigoVoluntario = voluntarios.codigovoluntario
+			AND voluntarios.codigoVoluntario = '$codigoVoluntario'
+			AND proyectos.estadoProyecto = 1
+			ORDER BY fechaProyecto DESC
+			";
+
+			$result = mysqli_query($this->db->connect(), $sql);
+			if($result != false){
+		        $rows = array();
+					while($r = mysqli_fetch_array($result)){
+		                $rows[] = $r;
+			        }
+			        echo json_encode($rows);
+			}else{
+				echo 'problema al consultar mi listado en la bd';
+			}
+	    }
+
+
+
+
 		public function aportanteDelete($codigoVoluntario,$codigoProyecto){
 			$sql = "
 			UPDATE aportantes
