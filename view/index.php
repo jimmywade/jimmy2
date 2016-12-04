@@ -79,7 +79,7 @@
         <div class="row">
             <div class="col-xs-3 col-xs-offset-8" style="padding:1em; background-color:#fff; box-shadow: 0px 0px 40px #666666;">
                 <div ng-click="hs(divActive, 'proyectosCreate'); hideSingle('menuLayout10'); setDivActive('proyectosCreate')" style="width:100%; padding:1em; cursor:pointer; ">Crear proyecto</div><br>
-                <div ng-click="misProyectos(divActive,'misproyecRead'); hideSingle('menuLayout10')" style="width:100%; padding:1em; cursor:pointer; ">Mis proyectos</div><br>
+                <div ng-click="miListadoRead(divActive,'misproyecRead'); hideSingle('menuLayout10')" style="width:100%; padding:1em; cursor:pointer; ">Mis proyectos</div><br>
                 <div ng-click="destruirSesion(); hideSingle('menuLayout10')" style="width:100%; padding:1em; cursor:pointer; ">Cerrar sesi&oacute;n</div><br>
             </div>
         </div>
@@ -731,11 +731,18 @@
 
 <section id="misproyecRead" style="display:none;">
 
+
     <div>
  
+
+
+
+
+
+
         <div style="clear:both; height:9em;"></div> <!-- espacio -->
         <div class="container">
-            <div class="row" ng-repeat="mp in mispro">
+            <div class="row" ng-repeat="mp in miListado">
                 <div class="col-xs-12" style="background-color:#FFF; padding:1em; border-bottom:solid 1px #d5d5d5; cursor:pointer;">
                     <div ng-click="esteProyectoMisproyec($index,mp.codigoProyecto,mp.duracionProyecto); hs(divActive,'misproyecDetalle'); setDivActive('misproyecDetalle')">
                         <div class="col-xs-2">

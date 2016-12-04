@@ -199,7 +199,6 @@ Estudiantes
 
     //set values default
     $scope.setDefaultValues=function(){
-
         $scope.errorLogin = "";
         $scope.erText = '';
         $scope.aviso3 ="";
@@ -469,10 +468,6 @@ Proyectos
 
 
 
-
-
-
-
 /*
 *********************************************************************************************
 Mis proyectos 
@@ -498,10 +493,8 @@ Mis proyectos
                 if(($scope.aportante!=undefined)&&($scope.aportante!='')&&($scope.aportante!='[]')&&($scope.aportante!='{}')){
 
                     // el llamado a las demas funciones y despues el apague y prenda
-                    var actualizarMisProyectos = $scope.miListadoRead();
-                    off(h);
-                    on(s);
-                    var anything = $scope.setDivActive(s);
+                    var actualizarMisProyectos = $scope.miListadoRead(h,s);
+ 
                 }else{
                     console.log('problema al consultar');
                 }
@@ -516,9 +509,12 @@ Mis proyectos
 
 
 
-
     //mis proyectos
-    $scope.miListadoRead = function(){
+    $scope.miListadoRead = function(h,s){
+                            
+
+        alert('div activo');
+        alert($scope.divActive);
                             
         $scope.miListado = [];
 
@@ -535,6 +531,13 @@ Mis proyectos
 
                     // el llamado a refrescar miListado
                     var refrescarMiListado = $scope.miListadoApply();
+                    
+                    //prende y apaga
+                    off(h);
+                    on(s);
+
+                    //setea este div como el activo
+                    var setaqui = $scope.setDivActive(s);
 
                 }else{
                     console.log('problem al consultar');
@@ -546,6 +549,13 @@ Mis proyectos
 
     }
     
+
+
+
+
+
+
+
 
 
 
