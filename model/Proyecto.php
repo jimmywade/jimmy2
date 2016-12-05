@@ -108,6 +108,7 @@
 	        SET nombreImagen='$nombreImagen'
 	        WHERE codigoImagen='$codigoImagen'
 			";
+			
 			$result = mysqli_query($this->db->connect(), $sql);
 			
 	        $rows = array();

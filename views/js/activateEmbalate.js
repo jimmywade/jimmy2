@@ -144,7 +144,11 @@ Estudiantes
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
             console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
             
-
+            console.log('imagen subida');
+            console.log('---resp---');
+            console.log(resp.data);
+            console.log('imagen subida');
+            console.log('imagen subida');
 
         });
 
@@ -169,6 +173,11 @@ Estudiantes
 
  
 
+
+   
+
+
+
     
     
     function xxx(){
@@ -190,6 +199,17 @@ Estudiantes
             });
     }
     
+
+
+
+
+    //set codigo imagen
+    $scope.setCodigoImagen=function(newCodigoImagen){
+        $scope.codigoImagen2 = newCodigoImagen; 
+        console.log('codigo-imagen es: ');
+        console.log($scope.codigoImagen2);
+    }
+
 
 
 

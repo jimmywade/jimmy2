@@ -32,14 +32,8 @@ move_uploaded_file ($_FILES ['file']['tmp_name'], $destino . '/' . $nombre_actua
 $ubicacion = $_FILES ['file']['tmp_name'];
 $ubicacion = $destino . '/' . $nombre_actual;
 
-/*
-echo '<h1>'.$nombre_actual.'</h1>';
-echo '<h1>'.$esteEstudiante.'</h1>';
-exit();
-*/
+
 
 require_once '../model/Proyecto.php';
 $Proyecto = new Proyecto;
 $proyecto = $Proyecto->imageUpdate($codigoImagen,$nombre_actual);
-
-
