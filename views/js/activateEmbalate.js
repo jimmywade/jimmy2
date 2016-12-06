@@ -572,6 +572,52 @@ Mis proyectos
 
 
 
+    //mis proyectos
+    $scope.soloMisProyectos = function(){
+               
+        $scope.mispro = [];
+
+        $scope.esteEstudiante = localStorage.getItem('student');
+
+        $http.post("../control/misproRead.php", {'esteEstudiante':$scope.esteEstudiante})
+            .success(function(data,status,headers,config){
+                console.log('-----SOLO MIS PROYECTOS-----');
+                console.log(data);
+                console.log('------------------');
+                $scope.mispro = data;
+
+            })
+            .error(function(err){
+                console.log('no fue posible consultar mis proyectos');
+            });
+    }
+    
+
+
+
+
+
+
+
+
+    //proyectos read cambio
+    $scope.soloMisProyectosApply = function(){
+
+        setTimeout(function(){ 
+
+                        $scope.$apply(function(){   //alert('Scope indice: ' + $scope.indice);
+                                                    $scope.mispro;
+                                               });
+                        },500
+                  );
+
+    }
+
+
+
+
+
+
 
 
     $scope.esteProyectoMisproyec=function(miIndice,codigoProyecto,duracionProyecto){
@@ -593,63 +639,7 @@ Mis proyectos
 
 
 
-    //modify este proyecto
-    $scope.miproyecModify=function(
-        codigoImagen2,
-        nombreImagen2,
-        codigoProyecto2,
-        nombreProyecto2,
-        problemaProyecto2,
-        estadoProyecto2,
-        objetivoProyecto2,
-        especificoProyecto2,
-        actividadProyecto2,
-        resultadoProyecto2,
-        valorProyecto2,
-        beneficiarioProyecto2,
-        areaProyecto2,
-        duracionProyecto2,
-        codigoCiudad2,
-        nombreCiudad2,
-        codigoPais2,
-        nombrePais2,
-        codigoTema2,
-        nombreTema2,
-        codigoInstitucion2,
-        nombreInstitucion2,
-        codigoEstudiante2,
-        nombreEstudiante2
-        ){
-
-            $scope.codigoImagen2 = codigoImagen2;
-            $scope.nombreImagen2 = nombreImagen2;
-            $scope.codigoProyecto2 = codigoProyecto2;
-            $scope.nombreProyecto2 = nombreProyecto2;
-            $scope.problemaProyecto2 = problemaProyecto2;
-            $scope.estadoProyecto2 = estadoProyecto2;
-            $scope.objetivoProyecto2 = objetivoProyecto2;
-            $scope.especificoProyecto2 = especificoProyecto2;
-            $scope.actividadProyecto2 = actividadProyecto2;
-            $scope.resultadoProyecto2 = resultadoProyecto2;
-            $scope.valorProyecto2 = valorProyecto2;
-            $scope.beneficiarioProyecto2 = beneficiarioProyecto2;
-            $scope.areaProyecto2 = areaProyecto2;
-            $scope.duracionProyecto2 = duracionProyecto2;
-            $scope.codigoPais2 = codigoPais2;
-            $scope.nombrePais2 = nombrePais2;
-            $scope.codigoCiudad2 = codigoCiudad2;
-            $scope.nombreCiudad2 = nombreCiudad2;
-            $scope.codigoTema2 = codigoTema2;
-            $scope.nombreTema2 = nombreTema2;
-            $scope.codigoInstitucion2 = codigoInstitucion2;
-            $scope.nombreInstitucion2 = nombreInstitucion2;
-            $scope.codigoEstudiante2 = codigoEstudiante2;
-            $scope.nombreEstudiante2 = nombreEstudiante2;
-
-    }
-    
-
-
+/*
 
 
     //Update este proyecto
@@ -692,6 +682,8 @@ Mis proyectos
 
 
 
+
+
     $scope.mysproUpdate=function(){
         $http.post("../control/misproUpdate.php", {
                                                     'codigoProyecto':$scope.codigoProyecto2,
@@ -716,6 +708,65 @@ Mis proyectos
                         console.log('no se pudieron realizar los cambios');
                     });
     }
+
+
+*/
+
+
+
+
+
+
+    // upload logo
+    $scope.uploadLogo = function (file,codigoEsteLogo,h,s){
+    
+
+        //$scope.esteZtudiante = localStorage.getItem('student');
+        
+        Upload.upload({
+            url: '../control/logoUpdate.php',
+            data: {file: file, 'codigoImagen':codigoEsteLogo}
+        }).then(function (resp) {
+            console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+
+            /*
+            if(resp.data){
+                timer3 = setTimeout($scope.proyectosLoad('misproyecUpdate','proyectosRead'), 3000);
+            }
+            */
+
+           
+        }, function (resp) {
+            console.log('Error status: ' + resp.status);
+        }, function (evt) {
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+            
+            console.log('bb Reloading proyectos bbb');
+            var reloadSoloMisProyectos = $scope.soloMisProyectos();
+            
+            console.log('ccc applying proyectos cccc');
+            var soloMisProyectosApply = $scope.soloMisProyectosApply();
+            
+            console.log('¿¿ h s ¿¿¿');
+            var apre = $scope.hs(h,s);
+            
+            console.log('##div activo #####');
+            console.log($scope.divAdtive);
+            
+            console.log(',,,,,,,,,,,,,');
+
+
+
+        });
+
+    };
+
+
+
+
+   
+
 
 
 

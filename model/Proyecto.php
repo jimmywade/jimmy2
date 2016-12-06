@@ -125,4 +125,30 @@
 
 
 
+
+
+
+	    public function logoUpdate($codigoImagen,$nombreImagen){
+	        $sql = " UPDATE imagenes
+	        SET nombreImagen='$nombreImagen'
+	        WHERE codigoImagen='$codigoImagen'
+			";
+			
+			$result = mysqli_query($this->db->connect(), $sql);
+			
+	        $rows = array();
+	        if($result==true){
+	        	$r['success']=1;
+				$r['inserted']=true;
+	        }else{
+	        	$r['success']=0;
+				$r['inserted']=false;
+	        }
+
+		    echo json_encode($rows);
+	    }
+
+
+
+
 	}
