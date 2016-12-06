@@ -845,9 +845,9 @@
         <div style="clear:both; height:9em;"></div> <!-- espacio -->
         <div class="container">
             <div class="row" ng-repeat="mp in mispro">
+
                 <div class="col-xs-12" style="background-color:#FFF; padding:1em; border-bottom:solid 1px #d5d5d5; cursor:pointer;">
 
-                    
                         <div class="col-xs-12 col-xs-9 col-sm-offset-0" ng-click="esteProyectoMisproyec($index,mp.codigoProyecto,mp.duracionProyecto); hs(divActive,'misproyecDetalle'); setDivActive('misproyecDetalle')">
                             <div class="col-xs-4">
                                 <img style="width:100%;" src="../media/proyectos/images/{{mp.nombreImagen}}">
@@ -863,25 +863,15 @@
                                 <div style="width:100%;">
                                     <div style="clear:both; height:4em;"></div> 
                                 </div>
-                                <div class="btn btn-default" style="width:100%;">
-                                    <!--
-                                    <i style="margin:0 auto; color:#d5d5d5;" ng-click="showSingle('misproyecUpdate'); setCodigoImagen(mp.codigoImagen)" class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-                                    -->
-                                    <i style="margin:0 auto; color:#d5d5d5;" class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+                                <div class="btn btn-default" style="width:100%; ">
+
+                                    <i style="color:#d5d5d5;" class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                                 </div>
                             </div>
                             <div class="col-sm-5  col-xs-offset-0"   title="Delete this project">
                                 <div style="width:100%;">
                                     <div style="clear:both; height:4em;"></div> 
                                 </div>
-                                <!--
-                                <div id="elix" class="btn btn-default" style="width:100%; display: block;" ng-click="hs('elix','elix2')">
-                                    <i style="margin:0 auto; color:#d5d5d5;" class="fa fa-times fa-2x" aria-hidden="true"></i>
-                                </div>
-                                <div id="elix2" class="btn btn-danger" style="width:100%; display: none;" ng-click="mysproDelete(mp.codigoProyecto); hs('elix2','elix'); ">
-                                    <i style="margin:0 auto;" class="fa fa-times fa-2x" aria-hidden="true"></i>
-                                </div>
-                                -->
                                 <div id="elix" class="btn btn-default" style="width:100%; display: block;">
                                     <i style="margin:0 auto; color:#d5d5d5;" class="fa fa-times fa-2x" aria-hidden="true"></i>
                                 </div>
@@ -890,16 +880,12 @@
                                 </div>
                             </div>
                         </div>
-                    
-
-
-
-
 
                 </div>
 
                 <div style="clear:both; height:2em;"></div> <!-- espacio -->
             </div>
+
         </div>
         
     </div>
@@ -953,7 +939,7 @@
                     <div id="logoUpdate1" ng-click="hs('logoUpdate1','logoUpdate2')" style="display:block;">
                         <img style="width:100%;" src="../media/proyectos/images/{{mispro[miIndice].nombreImagen}}">
                     </div>
-                    <div id="logoUpdate2" style="display: none; padding:1em;">
+                    <div id="logoUpdate2" style="display:none; padding:2em;">
                         <div style="text-align:center; margin:0 auto; padding:2em;" class="btn btn-primary" ngf-select="uploadLogo($file,mispro[miIndice].nombreImagen,'logoUpdate2','logoUpdate1')">
                             <button><i class="fa fa-file-image-o fa-4x" aria-hidden="true"></i></button>
                         </div>
