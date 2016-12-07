@@ -73,7 +73,6 @@ Estudiantes
     // upload on file select or drop
     $scope.upload = function (file) {
         $scope.ztudent = localStorage.getItem('student');
-        //alert($scope.ztudent);
 
         Upload.upload({
             url: '../control/picanteUpdate.php',
@@ -493,7 +492,6 @@ Proyectos
 
     $scope.esteProyecto=function(indice,codigoProyecto,duracionProyecto){
         $scope.indice = indice;
-        //alert('el indice enviado es: ' + $scope.indice);
 
         if(duracionProyecto < 30){
             $scope.meses = 'mes';
@@ -512,7 +510,7 @@ Proyectos
 
         setTimeout(function(){ 
 
-                        $scope.$apply(function(){   //alert('Scope indice: ' + $scope.indice);
+                        $scope.$apply(function(){   
                                                     $scope.listado;
                                                });
                         },500
@@ -546,7 +544,6 @@ Mis proyectos
 
                 setTimeout(function(){ 
 
-                                                    alert(miLi);
                                                            
                                                     if(($scope.mispro!=undefined)&&($scope.mispro!='')&&($scope.mispro!='[]')&&($scope.mispro!='{}')){
                                                         off(h);
@@ -597,7 +594,6 @@ Mis proyectos
 
     $scope.esteProyectoMisproyec=function(miIndice,codigoProyecto,duracionProyecto){
         $scope.miIndice = miIndice;
-        //alert('miIndice enviado es: ' + $scope.miIndice);
 
         if(duracionProyecto < 30){
             $scope.meses = 'mes';
