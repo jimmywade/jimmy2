@@ -280,20 +280,14 @@ Estudiantes
                         console.log('--- LISTADO PROYECTOS: ----');
                             console.log(data);
                             $scope.listado = data;
-                        console.log('--- LISTADO PROYECTOS: ----');
+                        console.log('------------------');
                             
                             if(($scope.listado!=undefined)&&($scope.listado!='')&&($scope.listado!='[]')&&($scope.listado!='{}')){
                                 on_off('estudianteRead','proyectosRead');
                                 on('mainMenu');
                                 $scope.h1 = "Activate y embalate";
                                 $scope.divActive = "proyectosRead";
-                                console.log('------- ULTIMO IF ------');
-                                console.log('------- ULTIMO IF ------');
-                                console.log('------- ULTIMO IF ------');
-                                console.log('------- ULTIMO IF ------');
-
-
-
+                               
                             }else{
                                 $scope.loginFailed();
                             }
@@ -546,34 +540,37 @@ Mis proyectos
 
     //mis proyectos
     $scope.misProyectos = function(h,s){
-               
-        $scope.mispro = [];
 
-        $scope.esteEstudiante = localStorage.getItem('student');
+        var miLi = $scope.miListado();
 
-        $http.post("../control/misproRead.php", {'esteEstudiante':$scope.esteEstudiante})
-            .success(function(data,status,headers,config){
-                console.log('------------MIS PROYECTOS----------');
-                console.log(data);
-                console.log('----------------------');
-                $scope.mispro = data;
 
-                if(($scope.mispro!=undefined)&&($scope.mispro!='')&&($scope.mispro!='[]')&&($scope.mispro!='{}')){
-                    off(h);
-                    on(s);
-                    var anything = $scope.setDivActive(s);
-                }
-            })
-            .error(function(err){
-                console.log('no fue posible consultar mis proyectos');
-            });
+                setTimeout(function(){ 
+
+                                                    alert(miLi);
+                                                           
+                                                    if(($scope.mispro!=undefined)&&($scope.mispro!='')&&($scope.mispro!='[]')&&($scope.mispro!='{}')){
+                                                        off(h);
+                                                        on(s);
+                                                        var anything = $scope.setDivActive(s);
+                                                        return true;
+                                                    }else{
+                                                        console.log('no se pudo acceder a miListado');
+                                                        return false;
+                                                    }
+
+
+                        },500
+                  );
+
+
     }
     
+
 
 
 
     //mis proyectos
-    $scope.soloMisProyectos = function(){
+    $scope.miListado = function(){
                
         $scope.mispro = [];
 
@@ -581,9 +578,9 @@ Mis proyectos
 
         $http.post("../control/misproRead.php", {'esteEstudiante':$scope.esteEstudiante})
             .success(function(data,status,headers,config){
-                console.log('-----SOLO MIS PROYECTOS-----');
+                console.log('------MI LISTADO-----');
                 console.log(data);
-                console.log('------------------');
+                console.log('----------------------');
                 $scope.mispro = data;
 
             })
@@ -592,28 +589,6 @@ Mis proyectos
             });
     }
     
-
-
-
-
-
-
-
-
-    //proyectos read cambio
-    $scope.soloMisProyectosApply = function(){
-
-        setTimeout(function(){ 
-
-                        $scope.$apply(function(){   //alert('Scope indice: ' + $scope.indice);
-                                                    $scope.mispro;
-                                               });
-                        },500
-                  );
-
-    }
-
-
 
 
 
@@ -639,101 +614,14 @@ Mis proyectos
 
 
 
-/*
-
-
-    //Update este proyecto
-    $scope.miproUpdate=function(aa,bb){
-        var aa =aa;
-        var bb =bb;
-        $scope.nuevoProyecto = [];
-
-        $scope.esteZtudiante = localStorage.getItem('student');
-
-        $http.post("../control/misproUpdate.php", {
-            'codigoEstudiante':$scope.esteZtudiante,
-            'codigoProyecto':$scope.codigoProyecto2,
-            'nombreProyecto':$scope.nombreProyecto2,
-            'problemaProyecto':$scope.problemaProyecto2,
-            'objetivoProyecto':$scope.objetivoProyecto2,
-            'especificoProyecto':$scope.especificoProyecto2,
-            'actividadProyecto':$scope.actividadProyecto2,
-            'resultadoProyecto':$scope.resultadoProyecto2,
-            'valorProyecto':$scope.valorProyecto2,
-            'beneficiarioProyecto':$scope.beneficiarioProyecto2,
-            'areaProyecto':$scope.areaProyecto2,
-            'duracionProyecto':$scope.duracionProyecto2
-            })
-            .success(function(data,status,headers,config){
-                console.log(data);
-                $scope.nuevoProyecto = data;
-                
-                if(($scope.nuevoProyecto!=undefined)&&($scope.nuevoProyecto!='')&&($scope.nuevoProyecto!='[]')&&($scope.nuevoProyecto!='{}')){
-                    off(aa);
-                    on(bb);
-                }
-            })
-            .error(function(err){
-                console.log('no fue posible modificar este proyecto');
-            });
-    }
-
-
-
-
-
-
-
-    $scope.mysproUpdate=function(){
-        $http.post("../control/misproUpdate.php", {
-                                                    'codigoProyecto':$scope.codigoProyecto2,
-                                                    'nombreProyecto':$scope.nombreProyecto2,
-                                                    'codigoTema':$scope.codigoTema2,
-                                                    'problemaProyecto':$scope.problemaProyecto2,
-                                                    'objetivoProyecto':$scope.objetivoProyecto2,
-                                                    'especificoProyecto':$scope.especificoProyecto2,
-                                                    'resultadoProyecto':$scope.resultadoProyecto2,
-                                                    'actividadProyecto':$scope.actividadProyecto2,
-                                                    'beneficiarioProyecto':$scope.beneficiarioProyecto2,
-                                                    'areaProyecto':$scope.areaProyecto2,
-                                                    'valorProyecto':$scope.valorProyecto2,
-                                                    'duracionProyecto':$scope.duracionProyecto2
-            })
-            .success(function(data,status,headers,config){ 
-                console.log(data);
-                $scope.afterUpdate = data;
-                console.log('cambios realizados exitosamente en el proyecto ' + $scope.nombreProyecto2);
-            })
-            .error(function(err){
-                        console.log('no se pudieron realizar los cambios');
-                    });
-    }
-
-
-*/
-
-
-
-
-
-
     // upload logo
     $scope.uploadLogo = function (file,codigoEsteLogo,h,s){
-    
 
-        //$scope.esteZtudiante = localStorage.getItem('student');
-        
         Upload.upload({
             url: '../control/logoUpdate.php',
             data: {file: file, 'codigoImagen':codigoEsteLogo}
         }).then(function (resp) {
             console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-
-            /*
-            if(resp.data){
-                timer3 = setTimeout($scope.proyectosLoad('misproyecUpdate','proyectosRead'), 3000);
-            }
-            */
 
            
         }, function (resp) {
@@ -742,19 +630,20 @@ Mis proyectos
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
             console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
             
-            console.log('bb Reloading proyectos bbb');
-            var reloadSoloMisProyectos = $scope.soloMisProyectos();
+
+            console.log('----RELOADING miListado-----');
+            var reloadSoloMisProyectos = $scope.miListado();
+
+
+                setTimeout(function(){ 
+                                                           
+                                        console.log('-----APPLYING miListado-----');
+                                        var misProyectosApply = $scope.miListadoApply();
+                                        var oculto = $scope.hs(h,s);
+
+                        },2000
+                );
             
-            console.log('ccc applying proyectos cccc');
-            var soloMisProyectosApply = $scope.soloMisProyectosApply();
-            
-            console.log('¿¿ h s ¿¿¿');
-            var apre = $scope.hs(h,s);
-            
-            console.log('##div activo #####');
-            console.log($scope.divAdtive);
-            
-            console.log(',,,,,,,,,,,,,');
 
 
 
@@ -763,6 +652,60 @@ Mis proyectos
     };
 
 
+
+
+
+
+/*
+
+    //mis proyectos
+    $scope.soloMisProyectos = function(hh,ss){
+               
+        $scope.mispro = [];soloMisProyectosApply
+
+        $scope.esteEstudiante = localStorage.getItem('student');
+
+        $http.post("../control/misproRead.php", {'esteEstudiante':$scope.esteEstudiante})
+            .success(function(data,status,headers,config){
+                console.log('------------MIS PROYECTOS----------');
+                console.log(data);
+                console.log('----------------------');
+                $scope.mispro = data;
+                
+                //refresca $scope.mispro
+                if(($scope.mispro!=undefined)&&($scope.mispro!='')&&($scope.mispro!='[]')&&($scope.mispro!='{}')){
+                    var cualquiera = $scope.soloMisProyectosApply();
+                }else{
+                    console.log('WARNING: no se pudo refrescar la funcion soloMisProyectosApply');
+                }
+            })
+            .error(function(err){
+                console.log('no fue posible consultar mis proyectos');
+            });
+
+            return true;
+    }
+    
+*/
+
+
+
+
+
+    //proyectos read cambio
+    $scope.miListadoApply = function(){
+
+        setTimeout(function(){ 
+
+                        $scope.$apply(function(){   
+
+                                                    $scope.miListado();
+
+                                               });
+                        },500
+                  );
+
+    }
 
 
    
@@ -849,14 +792,10 @@ Efectos visuales
 
     //turn off este
     $scope.setDivActive=function(active){
-        timer7 = setTimeout(function(){ $scope.divActive = active; 
-            //alert($scope.divActive); 
-            //console.log('-----Div activo = ------'); 
-            //console.log($scope.divActive); 
-        }, 300);
-        
-    }
 
+        timer7 = setTimeout(function(){ $scope.divActive = active; }, 300);
+
+    }
 
 
 

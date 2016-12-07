@@ -940,7 +940,7 @@
                         <img style="width:100%;" src="../media/proyectos/images/{{mispro[miIndice].nombreImagen}}">
                     </div>
                     <div id="logoUpdate2" style="display:none; padding:2em;">
-                        <div style="text-align:center; margin:0 auto; padding:2em;" class="btn btn-primary" ngf-select="uploadLogo($file,mispro[miIndice].nombreImagen,'logoUpdate2','logoUpdate1')">
+                        <div style="text-align:center; margin:0 auto; padding:2em;" class="btn btn-primary" ngf-select="uploadLogo($file,mispro[miIndice].codigoImagen,'logoUpdate2','logoUpdate1')">
                             <button><i class="fa fa-file-image-o fa-4x" aria-hidden="true"></i></button>
                         </div>
                         <h6><i>Seleccione una imagen de perfil</i></h6>
