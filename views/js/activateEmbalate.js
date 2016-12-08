@@ -221,6 +221,8 @@ Estudiantes
         $scope.months = "";
         $scope.indice = "";
         $scope.miIndice = "";
+        $scope.emailEstudiante = 'eudes@gmail.com';
+        $scope.passwordEstudiante = '123';
     }
 
 
@@ -562,6 +564,40 @@ Mis proyectos
 
 
 
+
+    $scope.misVoluntarios = function(){
+               
+        $scope.misvol = [];
+
+        $scope.esteEstudiante = localStorage.getItem('student');
+
+        $http.post("../control/voluntariosRead.php", {'esteEstudiante':$scope.esteEstudiante})
+            .success(function(data,status,headers,config){
+                console.log('------MIS VOLUNTARIOS-----');
+                console.log(data);
+                console.log('----------------------');
+                $scope.misvol = data;
+
+            })
+            .error(function(err){
+                console.log('no fue posible consultar mis voluntarios');
+            });
+    }
+    
+
+
+
+    $scope.voluntariosRead = function(ind,h,s){
+
+        $scope.ind = ind;
+
+
+    }
+    
+
+
+
+
     $scope.esteProyectoMisproyec=function(miIndice,codigoProyecto,duracionProyecto){
         
         $scope.miIndice = miIndice;
@@ -673,9 +709,6 @@ Mis proyectos
             });
        
     }
-
-
-
 
 
 

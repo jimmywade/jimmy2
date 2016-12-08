@@ -549,14 +549,13 @@
                     </div>
 
                     <div class="col-xs-12 col-sm-2">
-                        <button ng-click=" proyectoInsert(divActive,'proyectosRead') " style="width:100%;" class="btn btn-primary"><i class="fa fa-check fa-1x" style="text-decoration:none; color:#EBEBEB;" aria-hidden="true"></i></button>
+                        <button ng-click=" proyectoInsert(divActive,'proyectosRead') " style="width:100%;" title="Upload to cloud" class="btn btn-primary"><i class="fa fa-cloud-upload fa-2x" style="text-decoration:none; color:#EBEBEB;" aria-hidden="true"></i></button>
                     </div>
                 </div>
             </div>
             <div class="row" style="clear:both; height:5em;"></div> <!-- espacio -->
 
         </div>
-
 
 
 
@@ -856,27 +855,34 @@
 
                 <div class="col-xs-12" style="background-color:#FFF; padding:1em; border-bottom:solid 1px #d5d5d5; cursor:pointer;">
 
-                        <div class="col-xs-12 col-xs-9 col-sm-offset-0" ng-click="esteProyectoMisproyec($index,mp.codigoProyecto,mp.duracionProyecto); hs(divActive,'misproyecDetalle'); setDivActive('misproyecDetalle')">
+                        <div class="col-xs-12 col-sm-9 col-sm-offset-0" ng-click="esteProyectoMisproyec($index,mp.codigoProyecto,mp.duracionProyecto); hs(divActive,'misproyecDetalle'); setDivActive('misproyecDetalle')">
                             <div class="col-xs-4">
                                 <img style="width:100%;" src="../media/proyectos/images/{{mp.nombreImagen}}">
                             </div>
-                            <div class="col-xs-8 col-sm-7 col-xs-offset-0 col-xs-offset-1">
+                            <div class="col-xs-8">
                                 <div class="col-xs-12" style="color:#a8a8a8; text-align:center;"><h3><b>{{mp.nombreProyecto}}</b></h3></div>
-                                <div class="col-xs-12">{{mp.problemaProyecto | cortarTexto:250 }}</div>
+                                <div class="col-xs-12">{{mp.problemaProyecto | cortarTexto:200 }}</div>
                             </div>
                         </div>
 
-                        <div class="col-xs-12 col-xs-2 col-sm-offset-1">
-                            <div class="col-sm-5  col-xs-offset-2" title="Edit project">
+                        <div class="col-xs-12 col-sm-3 col-sm-offset-0">
+                            <div class="col-sm-3  col-xs-offset-1" style="padding:0;" title="volunteers">
+                                <div style="width:100%;">
+                                    <div style="clear:both; height:4em;"></div> 
+                                </div>
+                                <div class="btn btn-default" style="width:100%;" ng-click="voluntariosRead($index,divActive,'voluntariosRead')">
+                                    <i style="color:#d5d5d5;" class="fa fa-hand-spock-o fa-2x" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-xs-offset-1" style="padding:0;" title="Edit project">
                                 <div style="width:100%;">
                                     <div style="clear:both; height:4em;"></div> 
                                 </div>
                                 <div class="btn btn-default" style="width:100%;" ng-click="esteProyectoMisproyec($index,mp.codigoProyecto,mp.duracionProyecto); hs(divActive,'misproyecEdit'); setDivActive('misproyecEdit')">
-
                                     <i style="color:#d5d5d5;" class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                                 </div>
                             </div>
-                            <div class="col-sm-5  col-xs-offset-0"   title="Delete this project">
+                            <div class="col-sm-3 col-xs-offset-1" style="padding:0;" title="Delete this project">
                                 <div style="width:100%;">
                                     <div style="clear:both; height:4em;"></div> 
                                 </div>

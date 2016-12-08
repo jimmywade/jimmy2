@@ -76,8 +76,8 @@ Estudiantes
 
     // upload on file select or drop
     $scope.upload = function (file) {
+
         $scope.ztudent = localStorage.getItem('student');
-        //alert($scope.ztudent);
 
         Upload.upload({
             url: '../control/picanteUpdate.php',
@@ -314,9 +314,10 @@ Estudiantes
 
     //setear estudiante
     $scope.setVoluntario=function(volunteer){
+
        localStorage.setItem('volunteer', volunteer);
        valorActual = localStorage.getItem('volunteer');
-       //alert(valorActual);
+       
     }
 
 
@@ -431,8 +432,8 @@ Proyectos
 
 
     $scope.esteProyecto=function(indice,codigoProyecto,duracionProyecto){
+
         $scope.indice = indice;
-        //alert('el indice enviado es: ' + $scope.indice);
 
         if(duracionProyecto < 30){
             $scope.meses = 'mes';
@@ -451,7 +452,7 @@ Proyectos
     $scope.proyectosReadApply = function(){
 
         setTimeout(function(){ 
-                        $scope.$apply(function(){   //alert('Scope indice: ' + $scope.indice);
+                        $scope.$apply(function(){   
                                                     $scope.listado;
                                                     console.log('Listado refrescado');
                                                });
@@ -554,11 +555,7 @@ Mis proyectos
 
     $scope.esteProyectoMisproyec=function(miIndice,codigoProyecto,duracionProyecto){
 
-        
-        alert('hola chao');
-        alert(miIndice);
         $scope.miIndice = miIndice;
-        //alert('miIndice enviado es: ' + $scope.miIndice);
 
         if(duracionProyecto < 30){
             $scope.meses = 'mes';
@@ -577,7 +574,7 @@ Mis proyectos
     $scope.miListadoApply = function(){
 
         setTimeout(function(){ 
-                        $scope.$apply(function(){   //alert('Scope indice: ' + $scope.indice);
+                        $scope.$apply(function(){   
                                                     $scope.miListado;
                                                     console.log('Aportante refrescado');
                                                });
@@ -650,7 +647,6 @@ Efectos visuales
     //turn off este
     $scope.setDivActive=function(active){
         timer7 = setTimeout(function(){ $scope.divActive = active; 
-            //alert($scope.divActive); 
             //console.log('-----Div activo = ------'); 
             //console.log($scope.divActive); 
         }, 300);

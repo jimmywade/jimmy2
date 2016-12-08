@@ -37,6 +37,7 @@ class Estudiante{
 
 
 
+
     public function loginEstudiante($emailEstudiante, $passwordEstudiante) {
 		$sql = " SELECT codigoEstudiante FROM estudiantes 
 		WHERE emailEstudiante = '$emailEstudiante' 
@@ -51,6 +52,7 @@ class Estudiante{
 	        }
 	    echo json_encode($rows);
 	}
+
 
 
 
@@ -73,55 +75,6 @@ class Estudiante{
 	}
 
 
-
-
-    /*
-	public function misproRead_hh($esteEstudiante){
-		$sql = "SELECT * FROM participantes,proyectos,imagenes,estudiantes
-			WHERE participantes.codigoProyecto = proyectos.codigoProyecto 
-			AND proyectos.codigoProyecto = imagenes.codigoProyecto
-		    AND participantes.codigoEstudiante = '$esteEstudiante' 
-			AND proyectos.estadoProyecto = 1
-			AND participantes.estadoParticipante = 1
-		    AND estudiantes.estadoEstudiante = 1 
-		    ORDER BY proyectos.fechaProyecto DESC
-		";
-		$result = mysqli_query($this->db->connect(), $sql);
-        $rows = array();
-			while($r = mysqli_fetch_array($result)){
-				$r['success']=1;
-                $rows[] = $r;
-	        }
-	    echo json_encode($rows);
-	}
-    */
-
-
-
-    /*
-	public function misproRead_hh($esteEstudiante){
-		$sql = "
-		    SELECT * FROM participantes,proyectos,imagenes,estudiantes,instituciones,ciudades,paises
-			WHERE estudiantes.codigoEstudiante = '$esteEstudiante'
-			AND participantes.liderParticipante = 1
-			AND participantes.codigoProyecto = proyectos.codigoProyecto
-			AND proyectos.codigoProyecto = imagenes.codigoProyecto
-			AND participantes.codigoEstudiante = estudiantes.codigoEstudiante
-			AND estudiantes.codigoInstitucion = instituciones.codigoInstitucion
-			AND instituciones.codigoCiudad = ciudades.codigoCiudad
-			AND instituciones.codigoPais = paises.codigopais
-			AND proyectos.estadoProyecto = 1
-			ORDER BY fechaProyecto DESC
-		";
-		$result = mysqli_query($this->db->connect(), $sql);
-        $rows = array();
-			while($r = mysqli_fetch_array($result)){
-				$r['success']=1;
-                $rows[] = $r;
-	        }
-	    echo json_encode($rows);
-	}
-    */
 
 
 
@@ -150,6 +103,35 @@ class Estudiante{
 
 
 
+
+
+
+
+    public function misaportantesRead($codigoProyecto){
+		$sql = " 
+		SELECT * FROM aportantes,proyectos,voluntarios,ciudades,paises
+		WHERE aportantes.estadoAportante = 1
+		AND aportantes.codigoProyecto = '$codigoProyecto'
+		AND aportantes.codigoVoluntario = voluntarios.codigoVoluntario
+		AND voluntarios.codigoCiudad = ciudades.codigoCiudad
+		AND voluntarios.codigoPais = paises.codigoPais
+
+		
+		";
+		$result = mysqli_query($this->db->connect(), $sql);
+
+        $rows = array();
+			while($r = mysqli_fetch_array($result)){
+                $rows[] = $r;
+	        }
+	        echo json_encode($rows);
+	        
+	        var_dump($result);    
+    }
+
+
+
+    //ORDER BY fechaAportante DESC
 
 
 
