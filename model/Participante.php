@@ -31,16 +31,18 @@
 
 
 
-		public function participanteDelete($codigoEstudiante,$codigoProyecto){
+
+
+		public function participanteDelete($codigoProyecto){
 			$sql = "
 			UPDATE participantes
-            SET estadoParticipante='0'
-			WHERE codigoEstudiante='$codigoEstudiante'
-            AND codigoProyecto='$codigoProyecto' 
-
+            SET estadoParticipante = '0'
+			WHERE codigoProyecto = '$codigoProyecto'
 	    	";
 			$result = mysqli_query($this->db->connect(), $sql);
-			var_dump($result);
+			return $result;
+
+			//var_dump($result);
 		}
 
 

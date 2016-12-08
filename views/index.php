@@ -864,7 +864,7 @@
                                 <div class="col-xs-12" style="color:#a8a8a8; text-align:center;"><h3><b>{{mp.nombreProyecto}}</b></h3></div>
                                 <div class="col-xs-12">{{mp.problemaProyecto | cortarTexto:250 }}</div>
                             </div>
-                        </div> 
+                        </div>
 
                         <div class="col-xs-12 col-xs-2 col-sm-offset-1">
                             <div class="col-sm-5  col-xs-offset-2" title="Edit project">
@@ -880,10 +880,10 @@
                                 <div style="width:100%;">
                                     <div style="clear:both; height:4em;"></div> 
                                 </div>
-                                <div id="elix" class="btn btn-default" style="width:100%; display: block;">
+                                <div id="elix1" ng-click="hs('elix1','elix2')" class="btn btn-default" style="width:100%; display: block;">
                                     <i style="margin:0 auto; color:#d5d5d5;" class="fa fa-times fa-2x" aria-hidden="true"></i>
                                 </div>
-                                <div id="elix2" class="btn btn-danger" style="width:100%; display: none;">
+                                <div id="elix2" ng-click="misproyecDelete('elix2','elix1',divActive,'misproyecRead',mp.codigoParticipante,mp.codigoProyecto)" class="btn btn-danger" style="width:100%; display: none;">
                                     <i style="margin:0 auto;" class="fa fa-times fa-2x" aria-hidden="true"></i>
                                 </div>
                             </div>

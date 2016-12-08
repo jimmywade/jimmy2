@@ -173,9 +173,6 @@ Estudiantes
  
 
 
-   
-
-
 
     
     
@@ -377,33 +374,6 @@ Proyectos
 *********************************************************************************************
 */
 
-
-
-
-
-/*
-
-    $scope.proyectosLoad=function(hhh,sss){
-
-        $http.get("../control/proyectoRead.php")
-                    .success(function(data,status,headers,config){
-                        console.log(data);
-                        $scope.listado = data;
-                        
-                        if(($scope.listado!=undefined)&&($scope.listado!='')&&($scope.listado!='[]')&&($scope.listado!='{}')){
-                            off(hhh);
-                            on(sss);
-
-                        }else{
-                            console.log('no projects to reach');
-                        }
-                        
-                    })
-                    .error(function(err){
-                        console.log('cannot reach projects from db');
-                    });
-    }
-*/
 
 
 
@@ -659,40 +629,6 @@ Mis proyectos
 
 
 
-/*
-
-    //mis proyectos
-    $scope.soloMisProyectos = function(hh,ss){
-               
-        $scope.mispro = [];soloMisProyectosApply
-
-        $scope.esteEstudiante = localStorage.getItem('student');
-
-        $http.post("../control/misproRead.php", {'esteEstudiante':$scope.esteEstudiante})
-            .success(function(data,status,headers,config){
-                console.log('------------MIS PROYECTOS----------');
-                console.log(data);
-                console.log('----------------------');
-                $scope.mispro = data;
-                
-                //refresca $scope.mispro
-                if(($scope.mispro!=undefined)&&($scope.mispro!='')&&($scope.mispro!='[]')&&($scope.mispro!='{}')){
-                    var cualquiera = $scope.soloMisProyectosApply();
-                }else{
-                    console.log('WARNING: no se pudo refrescar la funcion soloMisProyectosApply');
-                }
-            })
-            .error(function(err){
-                console.log('no fue posible consultar mis proyectos');
-            });
-
-            return true;
-    }
-    
-*/
-
-
-
 
 
     //proyectos read cambio
@@ -717,15 +653,25 @@ Mis proyectos
 
 
 
+    $scope.misproyecDelete = function(hh,ss,h,s,miCodigoParticipante,miCodigoProyecto){
 
-    $scope.mysproDelete=function(codeProyecto2){
-        $scope.codeProyecto2 = codeProyecto2;
-        $scope.studento = localStorage.getItem('student');
-        $http.post("../control/misproDelete.php", {'codigoProyecto':$scope.codeProyecto2,'codigoEstudiante':$scope.studento})
+        //alert('participante: ' + miCodigoParticipante);
+        //alert('proyecto: ' + miCodigoProyecto);
+
+        $scope.miCodigoProyecto = miCodigoProyecto;
+        $scope.miCodigoParticipante = miCodigoParticipante;
+
+        //$scope.studento = localStorage.getItem('student');
+
+        $http.post("../control/misproyecDelete.php", {'codigoParticipante':$scope.miCodigoParticipante,'codigoProyecto':$scope.miCodigoProyecto})
             .success(function(data,status,headers,config){ 
                 console.log(data);
                 $scope.afterDelete = data;
             })
+            .error(function(err){
+                console.log('no fue posible borrar este proyecto');
+            });
+       
     }
 
 

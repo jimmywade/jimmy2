@@ -64,6 +64,8 @@
 
 
 
+
+
 		public function proyectoUpdate($codigoProyecto,$nombreProyecto,$codigoTema,$problemaProyecto,$objetivoProyecto,$especificoProyecto,$resultadoProyecto,$actividadProyecto,$beneficiarioProyecto,$areaProyecto,$valorProyecto,$duracionProyecto){
 			$sql = "
 			UPDATE proyectos
@@ -87,6 +89,9 @@
 
 
 
+
+
+
 		public function proyectoDelete($codigoProyecto){
 			$sql = "
 			UPDATE proyectos
@@ -95,8 +100,11 @@
 	    	";
 
 			$result = mysqli_query($this->db->connect(), $sql);
-			var_dump($result);
+			return $result;
+
+			//var_dump($result);
 		}
+
 
 
 
@@ -128,6 +136,7 @@
 
 
 
+
 	    public function logoUpdate($codigoImagen,$nombreImagen){
 	        $sql = " UPDATE imagenes
 	        SET nombreImagen='$nombreImagen'
@@ -147,6 +156,8 @@
 
 		    echo json_encode($rows);
 	    }
+
+
 
 
 
