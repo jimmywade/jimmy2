@@ -593,6 +593,7 @@ Mis proyectos
 
 
     $scope.esteProyectoMisproyec=function(miIndice,codigoProyecto,duracionProyecto){
+        
         $scope.miIndice = miIndice;
 
         if(duracionProyecto < 30){
@@ -601,6 +602,15 @@ Mis proyectos
             $scope.meses = 'meses';
         }
         $scope.months = duracionProyecto / 30;
+
+
+        setTimeout(function(){ 
+
+                                 var anything = $scope.miListado();
+
+                },500
+        );
+
         
     }
 
@@ -620,13 +630,6 @@ Mis proyectos
             console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
 
            
-        }, function (resp) {
-            console.log('Error status: ' + resp.status);
-        }, function (evt) {
-            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-            
-
             console.log('----RELOADING miListado-----');
             var reloadSoloMisProyectos = $scope.miListado();
 
@@ -641,8 +644,12 @@ Mis proyectos
                 );
             
 
-
-
+        }, function (resp) {
+            console.log('Error status: ' + resp.status);
+        }, function (evt) {
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+            
         });
 
     };
